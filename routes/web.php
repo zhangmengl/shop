@@ -17,5 +17,8 @@ Route::any("/","Index\IndexController@index");//前台首页
 
 Route::prefix('login')->group(function () {
     Route::get("/reg","Index\LonginController@reg");//前台注册
+    Route::post("/regdo","Index\LonginController@regdo");//执行注册
     Route::get("/login","Index\LonginController@login");//前台登录
+    Route::post("/logindo","Index\LonginController@logindo");//执行登录
 });
+
