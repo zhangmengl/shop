@@ -5,7 +5,7 @@
 	<div class="side-nav-panel-right">
 		<ul id="slide-out-right" class="side-nav side-nav-panel collapsible">
 			<li class="profil">
-				<img src="img/profile.jpg" alt="">
+				<img src="/static/index/img/profile.jpg" alt="">
 				<h2>John Doe</h2>
 			</li>
 			<li><a href="setting.html"><i class="fa fa-cog"></i>Settings</a></li>
@@ -17,7 +17,31 @@
 	</div>
 	<!-- end side nav right-->
  
-	
+	<!-- navbar bottom -->
+	<div class="navbar-bottom">
+		<div class="row">
+			<div class="col s2">
+				<a href="index.html"><i class="fa fa-home"></i></a>
+			</div>
+			<div class="col s2">
+				<a href="wishlist.html"><i class="fa fa-heart"></i></a>
+			</div>
+			<div class="col s4">
+				<div class="bar-center">
+					<a href="#animatedModal" id="cart-menu"><i class="fa fa-shopping-basket"></i></a>
+					<span>2</span>
+				</div>
+			</div>
+			<div class="col s2">
+				<a href="contact.html"><i class="fa fa-envelope-o"></i></a>
+			</div>
+			<div class="col s2">
+				<a href="#animatedModal2" id="nav-menu"><i class="fa fa-bars"></i></a>
+			</div>
+		</div>
+	</div>
+	<!-- end navbar bottom -->
+
 	<!-- menu -->
 	<div class="menus" id="animatedModal2">
 		<div class="close-animatedModal2 close-icon">
@@ -202,7 +226,7 @@
 						<div class="cart-1">
 							<div class="row">
 								<div class="col s5">
-									<img src="img/cart-menu1.png" alt="">
+									<img src="/static/index/img/cart-menu1.png" alt="">
 								</div>
 								<div class="col s7">
 									<h5><a href="">Fashion Men's</a></h5>
@@ -237,7 +261,7 @@
 						<div class="cart-2">
 							<div class="row">
 								<div class="col s5">
-									<img src="img/cart-menu2.png" alt="">
+									<img src="/static/index/img/cart-menu2.png" alt="">
 								</div>
 								<div class="col s7">
 									<h5><a href="">Fashion Men's</a></h5>
@@ -301,126 +325,38 @@
 		</div>
 	</div>
 	<!-- end cart menu -->
-	
-	<!-- slider -->
-	<div class="slider">
-		
-		<ul class="slides">
-			<li>
-				<img src="img/slide1.jpg" alt="">
-				<div class="caption slider-content  center-align">
-					<h2>欢迎来到 梦想商城</h2>
-					<h4>Lorem ipsum dolor sit amet.</h4>
-					<a href="/link" class="btn button-default">现在去购物</a>
-				</div>
-			</li>
-			<li>
-				<img src="img/slide2.jpg" alt="">
-				<div class="caption slider-content center-align">
-					<h2>JACKETS BUSINESS</h2>
-					<h4>Lorem ipsum dolor sit amet.</h4>
-					<a href="" class="btn button-default">SHOP NOW</a>
-				</div>
-			</li>
-			<li>
-				<img src="img/slide3.jpg" alt="">
-				<div class="caption slider-content center-align">
-					<h2>FASHION SHOP</h2>
-					<h4>Lorem ipsum dolor sit amet.</h4>
-					<a href="" class="btn button-default">SHOP NOW</a>
-				</div>
-			</li>
-		</ul>
-
-	</div>
-	<!-- end slider -->
-
-	<!-- features -->
-
-	<div class="features section">
-		<div class="container">
-			<div class="row">
-				<div class="col s6">
-					<div class="content">
-						<div class="icon">
-							<i class="fa fa-car"></i>
-						</div>
-						<h6>免费送货</h6>
-						<p>Lorem ipsum dolor sit amet consectetur</p>
-					</div>
-				</div>
-				<div class="col s6">
-					<div class="content">
-						<div class="icon">
-							<i class="fa fa-dollar"></i>
-						</div>
-						<h6>退款</h6>
-						<p>Lorem ipsum dolor sit amet consectetur</p>
-					</div>
-				</div>
-			</div>
-			<div class="row margin-bottom-0">
-				<div class="col s6">
-					<div class="content">
-						<div class="icon">
-							<i class="fa fa-lock"></i>
-						</div>
-						<h6>安全付款</h6>
-						<p>Lorem ipsum dolor sit amet consectetur</p>
-					</div>
-				</div>
-				<div class="col s6">
-					<div class="content">
-						<div class="icon">
-							<i class="fa fa-support"></i>
-						</div>
-						<h6>24/7 支持</h6>
-						<p>Lorem ipsum dolor sit amet consectetur</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- end features -->
-
-	<!-- quote -->
-	<div class="section quote">
-		<div class="container">
-			<h4>FASHION UP TO 50% OFF</h4>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid ducimus illo hic iure eveniet</p>
-		</div>
-	</div>
-	<!-- end quote -->
 
 	<!-- product -->
-	<div class="section product">
+	<div class="section product product-list">
 		<div class="container">
-			<div class="section-head">
-				<h4>NEW PRODUCT</h4>
-				<div class="divider-top"></div>
-				<div class="divider-bottom"></div>
+			<div class="pages-head">
+				<h3>商品列表</h3>
 			</div>
-			<div class="row">@foreach($res as $v)
+			<div class="input-field">
+				<select>
+					<option value="">请选择</option>
+                    @foreach ($data as $v)
+					<option class="cate" value="{{$v['cate_id']}}">{{$v['cate_name']}}</option>
+					@endforeach
+				</select>
+			</div>
+
+            
+			<div class="row" id="abc">
+            @foreach($res as $v)
 				<div class="col s6">
-				
 					<div class="content">
 						<img src="{{$v['goods_img']}}" alt="">
-						<h6><a href="/details/{{$v['goods_id']}}">{{$v['goods_name']}}</a></h6>
+						<h6><a href="/details">{{$v['goods_name']}}</a></h6>
 						<div class="price">
-							${{$v['goods_price']}} 
+                            ${{$v['goods_price']}}
 						</div>
-						<button class="btn button-default">添加到购物车</button>
+						<button class="btn button-default">添加购物车</button>
 					</div>
-				
-				</div>@endforeach
+				</div>
+            @endforeach
 			</div>
-
-		</div>
-	</div>
-	<!-- end product -->	<!-- end promo -->
-
-	<!-- product -->
-	<div class="section product">
+	
 			<div class="pagination-product">
 				<ul>
 					<li class="active">1</li>
@@ -430,24 +366,61 @@
 					<li><a href="">5</a></li>
 				</ul>
 			</div>
-
+		</div>
 	</div>
 	<!-- end product -->
+
 	
 	<!-- loader -->
 	<div id="fakeLoader"></div>
 	<!-- end loader -->
-
+	
+	<!-- footer -->
+	<div class="footer">
+		<div class="container">
+			<div class="about-us-foot">
+				<h6>Mstore</h6>
+				<p>is a lorem ipsum dolor sit amet, consectetur adipisicing elit consectetur adipisicing elit.</p>
+			</div>
+			<div class="social-media">
+				<a href=""><i class="fa fa-facebook"></i></a>
+				<a href=""><i class="fa fa-twitter"></i></a>
+				<a href=""><i class="fa fa-google"></i></a>
+				<a href=""><i class="fa fa-linkedin"></i></a>
+				<a href=""><i class="fa fa-instagram"></i></a>
+			</div>
+			<div class="copyright">
+				<span>© 2017 All Right Reserved</span>
+			</div>
+		</div>
+	</div>
+	<!-- end footer -->
+	
 	<!-- scripts -->
-	<script src="js/jquery.min.js"></script>
-	<script src="js/materialize.min.js"></script>
-	<script src="js/owl.carousel.min.js"></script>
-	<script src="js/fakeLoader.min.js"></script>
-	<script src="js/animatedModal.min.js"></script>
-	<script src="js/main.js"></script>
+	<script src="/static/index/js/jquery.min.js"></script>
+	<script src="/static/index/js/materialize.min.js"></script>
+	<script src="/static/index/js/owl.carousel.min.js"></script>
+	<script src="/static/index/js/fakeLoader.min.js"></script>
+	<script src="/static/index/js/animatedModal.min.js"></script>
+	<script src="/static/index/js/main.js"></script>
 
 </body>
 </html>
-@include("index.layouts.foot")
-@endsection
 
+@endsection
+<!-- <script>
+    var vm = new Vue({
+        el: '#abc',
+        data: {
+            site:null,
+        },
+        delimiters:["<{","}>"],
+        mounted(){
+            var url='/dell';
+            axios.get(url).then(function(res){
+                vm.site=res.data;
+            })
+        }
+
+    })
+</script> -->
