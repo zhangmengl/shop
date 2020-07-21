@@ -14,6 +14,9 @@
 //     return view('welcome');
 // });
 Route::any("/","Index\IndexController@index");//前台首页
+Route::any("/link","Index\IndexController@link");//商品列表
+Route::any("/details/{id}","Index\IndexController@details");//商品详情
+
 
 Route::prefix('login')->group(function () {
     Route::get("/reg","Index\LonginController@reg");//前台注册
