@@ -403,13 +403,13 @@
 			<div class="row">@foreach($res as $v)
 				<div class="col s6">
 				
-					<div class="content">
+					<div class="content" goods_id="{{$v['goods_id']}}">
 						<img src="{{$v['goods_img']}}" alt="">
 						<h6><a href="/details/{{$v['goods_id']}}">{{$v['goods_name']}}</a></h6>
 						<div class="price">
 							${{$v['goods_price']}} 
 						</div>
-						<button class="btn button-default">添加到购物车</button>
+						<button class="btn button-default" id="btn">添加到购物车</button>
 					</div>
 				
 				</div>@endforeach
@@ -439,15 +439,34 @@
 	<!-- end loader -->
 
 	<!-- scripts -->
-	<script src="js/jquery.min.js"></script>
-	<script src="js/materialize.min.js"></script>
-	<script src="js/owl.carousel.min.js"></script>
-	<script src="js/fakeLoader.min.js"></script>
-	<script src="js/animatedModal.min.js"></script>
-	<script src="js/main.js"></script>
+	<script src="/static/index/js/jquery.min.js"></script>
+	<script src="/static/index/js/materialize.min.js"></script>
+	<script src="/static/index/js/owl.carousel.min.js"></script>
+	<script src="/static/index/js/fakeLoader.min.js"></script>
+	<script src="/static/index/js/animatedModal.min.js"></script>
+	<script src="/static/index/js/main.js"></script>
 
 </body>
 </html>
+<script>
+$(document).on('click','#btn',function(){
+	//当前点击的对象
+	var _this=$(this);
+	//购买数量
+	var buy_number=1;
+	//获取商品id
+	var goods_id=_this.parent().attr("goods_id");
+	$.ajax({
+		url:'/addCart',
+		type:'post',
+		data:{buy_number:buy_number,goods_id:goods_id},
+		dataType:'json',
+		success:function(res){
+			console.log(res);
+		}
+	})
+})
+</script>
 @include("index.layouts.foot")
 @endsection
 
