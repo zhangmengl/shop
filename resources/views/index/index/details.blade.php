@@ -50,8 +50,12 @@
 				<h5>{{$data['goods_name']}}</h5>
 				<div class="price">${{$data['goods_price']}} 
 				<p>{{$data['goods_desc']}}</p>
+<<<<<<< HEAD
 				<button type="button" class="btn button-default">加入购物车</button>
 				<button type="button" class="btn button-default" id="wish">收藏</button>
+=======
+				<button type="button" class="btn button-default" id="btn">加入购物车</button>
+>>>>>>> c537f54c84a6a447ae6bab77f95709efc936895d
 			</div>
 		
 			<div class="review">
@@ -125,10 +129,11 @@
 	<!-- end footer -->
 	
 	
-
+	<script src="/static/index/js/jquery.min.js"></script>
 </body>
 </html>
 <script>
+<<<<<<< HEAD
     //点击收藏按钮
 	$(document).on('click','#wish',function(){
 		var goods_id='{{$data['goods_id']}}';
@@ -151,4 +156,26 @@
 
 
 
+=======
+$(document).on('click','#btn',function(){
+	//购买数量
+	var buy_number=1;
+	//获取商品id
+	var goods_id={{$data['goods_id']}};
+	$.ajax({
+		url:'/addCart',
+		type:'post',
+		data:{buy_number:buy_number,goods_id:goods_id},
+		dataType:'json',
+		success:function(res){
+			if(res.code==true){
+				window.location.href='/cart';
+			}else{
+				alert(res.font);
+			}
+		}
+	})
+})
+</script>
+>>>>>>> c537f54c84a6a447ae6bab77f95709efc936895d
 @endsection
