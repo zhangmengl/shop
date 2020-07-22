@@ -13,11 +13,12 @@
 // Route::get('/', function () {
 //     return view('welcome');
 // });
-<<<<<<< HEAD
-=======
+
 Route::any("/","Index\IndexController@index");//前台首页
 Route::any("/link","Index\IndexController@link");//商品列表
 Route::any("/details/{id}","Index\IndexController@details");//商品详情
+
+
 
 Route::post("/addCart","Index\CartController@addCart");//加入购物车
 Route::get("/cart","Index\CartController@cartList");//购物车列表
@@ -25,7 +26,8 @@ Route::post("/changeNumber","Index\CartController@changeNumber");//更改购买�
 Route::post("/getTotal","Index\CartController@getTotal");//更改购买数据
 Route::post("/del","Index\CartController@del");//删除
 
->>>>>>> c537f54c84a6a447ae6bab77f95709efc936895d
+
+
 Route::prefix('login')->group(function () {
     Route::get("/reg","Index\LonginController@reg");//前台注册
     Route::post("/regdo","Index\LonginController@regdo");//执行注册
@@ -35,15 +37,14 @@ Route::prefix('login')->group(function () {
     Route::get("/quit","Index\LonginController@quit");//销毁
 });
 
+
+
 Route::prefix('wish')->group(function () {
     Route::get("wish","Index\WishController@wish");//收藏
     Route::get("wishDo","Index\WishController@wishDo");//点击收藏按钮
     Route::get("wishDel","Index\WishController@wishDel");//取消收藏
 });
 
-Route::any("/","Index\IndexController@index")->middleware('login');//前台首页
-Route::any("/link","Index\IndexController@link")->middleware('login');//商品列表
-Route::any("/details/{id}","Index\IndexController@details")->middleware('login');//商品详情
 
 
 
