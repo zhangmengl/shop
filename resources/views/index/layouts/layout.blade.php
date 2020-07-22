@@ -20,6 +20,7 @@
 	<link rel="stylesheet" href="css/animate.css">
 	<link rel="stylesheet" href="css/style.css">
 	
+	<script type="text/javascript" src="js/jquery.js"></script>
 	<link rel="shortcut icon" href="img/favicon.png">
 
 </head>
@@ -48,7 +49,7 @@
 				<a href="index.html"><i class="fa fa-home"></i></a>
 			</div>
 			<div class="col s2">
-				<a href="wishlist.html"><i class="fa fa-heart"></i></a>
+				<a href="{{url('wish/wish')}}"><i class="fa fa-heart"></i></a>
 			</div>
 			<div class="col s4">
 				<div class="bar-center">

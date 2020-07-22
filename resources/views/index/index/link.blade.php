@@ -347,12 +347,12 @@
 				<div class="col s6">
 					<div class="content">
 						<img src="{{$v['goods_img']}}" alt="">
-						<h6><a href="/details">{{$v['goods_name']}}</a></h6>
+						<h6><a href="/details/{{$v['goods_id']}}">{{$v['goods_name']}}</a></h6>
 						<div class="price">
                             ${{$v['goods_price']}}
 						</div>
 						<button class="btn button-default">添加购物车</button>
-					</div>
+					</div> 
 				</div>
             @endforeach
 			</div>

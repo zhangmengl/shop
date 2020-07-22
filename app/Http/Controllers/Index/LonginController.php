@@ -67,7 +67,7 @@ class LonginController extends Controller
             echo "用户名密码错误请重新登录";exit;
         }
         if(password_verify($password,$user['password'])){
-            header('Refresh:2,url=/create');
+            header('Refresh:2,url=/');
             session(['user'=>$user]);
         }else{
             echo "登录成功";

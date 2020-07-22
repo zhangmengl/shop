@@ -60,6 +60,7 @@
 				<div class="price">${{$data['goods_price']}} 
 				<p>{{$data['goods_desc']}}</p>
 				<button type="button" class="btn button-default">加入购物车</button>
+				<button type="button" class="btn button-default" id="wish">收藏</button>
 			</div>
 			<div class="review">
 					<h5>1 reviews</h5>
@@ -135,5 +136,29 @@
 
 </body>
 </html>
+<script>
+    //点击收藏按钮
+	$(document).on('click','#wish',function(){
+		var goods_id='{{$data['goods_id']}}';
+		$.ajax({
+			type:"get",
+			url:"{{url('wish/wishDo')}}",
+			data:{goods_id:goods_id},
+			dataType:'JSON',
+			success:function(res){
+				if(res.code==1){
+					alert("收藏成功");
+				}else if(res.code==2){
+					alert("该商品已收藏，请勿重新收藏！");
+				}else{
+					alert("您还未登录，请先登录");
+					location.href="{{url('login/login')}}"
+				}
+			}
+		});
+	})
+</script>
+
+
 
 @endsection

@@ -25,3 +25,9 @@ Route::prefix('login')->group(function () {
     Route::post("/logindo","Index\LonginController@logindo");//执行登录
 });
 
+Route::prefix('wish')->group(function () {
+    Route::get("wish","Index\WishController@wish");//收藏
+    Route::get("wishDo","Index\WishController@wishDo");//点击收藏按钮
+    Route::get("wishList","Index\WishController@wishList");//收藏列表
+});
+
