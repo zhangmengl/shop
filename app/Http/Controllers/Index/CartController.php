@@ -26,7 +26,7 @@ class CartController extends Controller
             //加入购物车  数据库
             $res=$this->addCartDb($goods_id,$buy_number);
         }else{
-            //加入购物车  cookie
+            //加入购物车  session
             $res=$this->addCartCookie($goods_id,$buy_number);
         }
         if($res){
@@ -199,13 +199,13 @@ class CartController extends Controller
     }
     //更改购买数量
     public function changeNumberCookie($goods_id,$buy_number){
-        //取出cookie
+        //取出session
         $cartInfo=session('cartInfo');
         //判断购物车数据
         if(!empty($cartInfo)){
-            //根据商品id将cookie的值改成新值
+            //根据商品id将session的值改成新值
             $cartInfo[$goods_id]["buy_number"]=$buy_number;
-            //重新存入cookie
+            //重新存入session
             session(['cartInfo'=>$cartInfo]);
             return true;
         }
@@ -238,13 +238,13 @@ class CartController extends Controller
         $buy_number=Cart::where($where)->value("buy_number");
         return $buy_number;
     }
-    //获取购买数量  cookie
+    //获取购买数量  session
     public function getBuyNumberCookie($goods_id){
-        //取出cookie
+        //取出session
         $cartInfo=session('cartInfo');
         if(!empty($cartInfo)){
             //print_r($cartInfo);exit;
-            //从cookie中取出当前商品的购买数量
+            //从session中取出当前商品的购买数量
             return $cartInfo[$goods_id]['buy_number'];
         }
     }
