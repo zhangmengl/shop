@@ -462,7 +462,11 @@ $(document).on('click','#btn',function(){
 		data:{buy_number:buy_number,goods_id:goods_id},
 		dataType:'json',
 		success:function(res){
-			console.log(res);
+			if(res.code==true){
+				window.location.href='/cart';
+			}else{
+				alert(res.font);
+			}
 		}
 	})
 })
