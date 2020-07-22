@@ -25,6 +25,7 @@
                         <div class="input-field">
                             <input type="password" name='passwords' placeholder="请输入确认密码" class="validate" required>
                         </div>
+
                         <input type="submit" class="btn button-default" value="REGISTER">
 					</form>
 				</div>
