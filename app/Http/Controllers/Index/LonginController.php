@@ -75,9 +75,10 @@ class LonginController extends Controller
             echo "用户名密码错误请重新登录";exit;
         }
     }
+    //退出
     public function quit(){
         session(['user'=>null]);
-        return redirect('/login/login');
+        return redirect('/');
     }
 
 }

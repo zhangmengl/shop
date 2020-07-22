@@ -62,6 +62,7 @@
 				<button type="button" class="btn button-default">加入购物车</button>
 				<button type="button" class="btn button-default" id="wish">收藏</button>
 			</div>
+		
 			<div class="review">
 					<h5>1 reviews</h5>
 					<div class="review-details">
@@ -146,9 +147,7 @@
 			data:{goods_id:goods_id},
 			dataType:'JSON',
 			success:function(res){
-				if(res.code==1){
-					alert("收藏成功");
-				}else if(res.code==2){
+				if(res.code==00001){
 					alert("该商品已收藏，请勿重新收藏！");
 				}else{
 					alert("您还未登录，请先登录");
