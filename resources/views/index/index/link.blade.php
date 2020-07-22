@@ -1,47 +1,6 @@
 @extends('index.layouts.layout')
 @section('content')
 
-	<!-- side nav right-->
-	<div class="side-nav-panel-right">
-		<ul id="slide-out-right" class="side-nav side-nav-panel collapsible">
-			<li class="profil">
-				<img src="/static/index/img/profile.jpg" alt="">
-				<h2>John Doe</h2>
-			</li>
-			<li><a href="setting.html"><i class="fa fa-cog"></i>Settings</a></li>
-			<li><a href="about-us.html"><i class="fa fa-user"></i>About Us</a></li>
-			<li><a href="contact.html"><i class="fa fa-envelope-o"></i>Contact Us</a></li>
-			<li><a href="login.html"><i class="fa fa-sign-in"></i>Login</a></li>
-			<li><a href="register.html"><i class="fa fa-user-plus"></i>Register</a></li>
-		</ul>
-	</div>
-	<!-- end side nav right-->
- 
-	<!-- navbar bottom -->
-	<div class="navbar-bottom">
-		<div class="row">
-			<div class="col s2">
-				<a href="index.html"><i class="fa fa-home"></i></a>
-			</div>
-			<div class="col s2">
-				<a href="wishlist.html"><i class="fa fa-heart"></i></a>
-			</div>
-			<div class="col s4">
-				<div class="bar-center">
-					<a href="#animatedModal" id="cart-menu"><i class="fa fa-shopping-basket"></i></a>
-					<span>2</span>
-				</div>
-			</div>
-			<div class="col s2">
-				<a href="contact.html"><i class="fa fa-envelope-o"></i></a>
-			</div>
-			<div class="col s2">
-				<a href="#animatedModal2" id="nav-menu"><i class="fa fa-bars"></i></a>
-			</div>
-		</div>
-	</div>
-	<!-- end navbar bottom -->
-
 	<!-- menu -->
 	<div class="menus" id="animatedModal2">
 		<div class="close-animatedModal2 close-icon">
@@ -226,7 +185,7 @@
 						<div class="cart-1">
 							<div class="row">
 								<div class="col s5">
-									<img src="/static/index/img/cart-menu1.png" alt="">
+									<img src="img/cart-menu1.png" alt="">
 								</div>
 								<div class="col s7">
 									<h5><a href="">Fashion Men's</a></h5>
@@ -261,7 +220,7 @@
 						<div class="cart-2">
 							<div class="row">
 								<div class="col s5">
-									<img src="/static/index/img/cart-menu2.png" alt="">
+									<img src="img/cart-menu2.png" alt="">
 								</div>
 								<div class="col s7">
 									<h5><a href="">Fashion Men's</a></h5>
@@ -346,7 +305,11 @@
             @foreach($res as $v)
 				<div class="col s6">
 					<div class="content">
+<<<<<<< HEAD
 						<img src="{{$v['goods_img']}}" alt="">
+=======
+					<a href="/details/{{$v['goods_id']}}"><img src="{{$v['goods_img']}}" alt=""></a> 
+>>>>>>> 90d9c349a4ad875fcee9282154a4f3ef5f9f1c6d
 						<h6><a href="/details/{{$v['goods_id']}}">{{$v['goods_name']}}</a></h6>
 						<div class="price">
                             ${{$v['goods_price']}}
@@ -358,13 +321,7 @@
 			</div>
 	
 			<div class="pagination-product">
-				<ul>
-					<li class="active">1</li>
-					<li><a href="">2</a></li>
-					<li><a href="">3</a></li>
-					<li><a href="">4</a></li>
-					<li><a href="">5</a></li>
-				</ul>
+			
 			</div>
 		</div>
 	</div>
@@ -374,27 +331,7 @@
 	<!-- loader -->
 	<div id="fakeLoader"></div>
 	<!-- end loader -->
-	
-	<!-- footer -->
-	<div class="footer">
-		<div class="container">
-			<div class="about-us-foot">
-				<h6>Mstore</h6>
-				<p>is a lorem ipsum dolor sit amet, consectetur adipisicing elit consectetur adipisicing elit.</p>
-			</div>
-			<div class="social-media">
-				<a href=""><i class="fa fa-facebook"></i></a>
-				<a href=""><i class="fa fa-twitter"></i></a>
-				<a href=""><i class="fa fa-google"></i></a>
-				<a href=""><i class="fa fa-linkedin"></i></a>
-				<a href=""><i class="fa fa-instagram"></i></a>
-			</div>
-			<div class="copyright">
-				<span>© 2017 All Right Reserved</span>
-			</div>
-		</div>
-	</div>
-	<!-- end footer -->
+
 	
 	<!-- scripts -->
 	<script src="/static/index/js/jquery.min.js"></script>
@@ -407,20 +344,5 @@
 </body>
 </html>
 
+@include("index.layouts.foot")
 @endsection
-<!-- <script>
-    var vm = new Vue({
-        el: '#abc',
-        data: {
-            site:null,
-        },
-        delimiters:["<{","}>"],
-        mounted(){
-            var url='/dell';
-            axios.get(url).then(function(res){
-                vm.site=res.data;
-            })
-        }
-
-    })
-</script> -->
