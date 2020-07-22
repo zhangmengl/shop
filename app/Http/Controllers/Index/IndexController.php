@@ -29,7 +29,7 @@ class IndexController extends Controller
     //商品详情
     public function details($id){
         // echo $id;die;
-        $data= model_shopgoods::where( 'goods_id',$id)->find($id)->toArray();
+        $data= model_shopgoods::find($id)->toArray();
         return view('index.index.details',['data'=>$data]);
     }
 }

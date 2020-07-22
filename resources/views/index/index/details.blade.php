@@ -40,15 +40,6 @@
 			</div>
 		</div>
 	</div>
-	<!-- end navbar bottom -->
-
-	<!-- menu -->
-
-	<!-- end menu -->
-
-	<!-- cart menu -->
-
-	<!-- end cart menu -->
 	
 	<!-- shop single -->
 	<div class="pages section">

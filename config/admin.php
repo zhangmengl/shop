@@ -58,7 +58,7 @@ return [
     */
     'route' => [
 
-        'prefix' => env('ADMIN_ROUTE_PREFIX', 'admin'),
+        'prefix' => 'admin',
 
         'namespace' => 'App\\Admin\\Controllers',
 
@@ -111,9 +111,6 @@ return [
     'auth' => [
 
         'controller' => App\Admin\Controllers\AuthController::class,
-
-        'guard' => 'admin',
-
         'guards' => [
             'admin' => [
                 'driver'   => 'session',
@@ -138,7 +135,6 @@ return [
         'excepts' => [
             'auth/login',
             'auth/logout',
-            '_handle_action_',
         ],
     ],
 

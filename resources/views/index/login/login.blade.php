@@ -9,21 +9,21 @@
 			</div>
 			<div class="login">
 				<div class="row">
-					<form class="col s12">
+					<form class="col s12" method="post" action="/login/logindo">
 						<div class="input-field">
-							<input type="text" class="validate" placeholder="USERNAME" required>
+							<input type="text" class="validate" name='name' placeholder="请输入用户名" required>
 						</div>
 						<div class="input-field">
-							<input type="password" class="validate" placeholder="PASSWORD" required>
+							<input type="password" class="validate" placeholder="请输入密码" required name="password">
 						</div>
 						<a href=""><h6>Forgot Password ?</h6></a>
-						<a href="" class="btn button-default">LOGIN</a>
+                        <input type="submit" value="LOGIN" class="btn button-default">
 					</form>
 				</div>
 			</div>
 		</div>
 	</div>
 	<!-- end login -->
-	
+
 
 @endsection

@@ -404,7 +404,7 @@
 				<div class="col s6">
 				
 					<div class="content">
-						<img src="{{$v['goods_img']}}" alt="">
+						<a href="/details/{{$v['goods_id']}}"><img src="{{$v['goods_img']}}" alt=""></a> 
 						<h6><a href="/details/{{$v['goods_id']}}">{{$v['goods_name']}}</a></h6>
 						<div class="price">
 							${{$v['goods_price']}} 
@@ -417,24 +417,7 @@
 
 		</div>
 	</div>
-	<!-- end product -->	<!-- end promo -->
 
-	<!-- product -->
-	<div class="section product">
-			<div class="pagination-product">
-				<ul>
-					<li class="active">1</li>
-					<li><a href="">2</a></li>
-					<li><a href="">3</a></li>
-					<li><a href="">4</a></li>
-					<li><a href="">5</a></li>
-				</ul>
-			</div>
-
-	</div>
-	<!-- end product -->
-	
-	<!-- loader -->
 	<div id="fakeLoader"></div>
 	<!-- end loader -->
 
