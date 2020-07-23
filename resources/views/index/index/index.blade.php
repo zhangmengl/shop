@@ -409,30 +409,25 @@
 	<div class="section product">
 		<div class="container">
 			<div class="section-head">
-				<h4>NEW PRODUCT</h4>
+				<h4>热卖商品</h4>
 				<div class="divider-top"></div>
 				<div class="divider-bottom"></div>
 			</div>
 			<div class="row">
-			@foreach($res as $v)
-				<div class="col s6">
-
-			
-					<div class="content">
-						<a href="/details/{{$v['goods_id']}}"><img src="{{$v['goods_img']}}" alt=""></a> 
-					<div class="content" goods_id="{{$v['goods_id']}}">
-						<img src="{{$v['goods_img']}}" alt="">
-
-						<h6><a href="/details/{{$v['goods_id']}}">{{$v['goods_name']}}</a></h6>
-						<div class="price">
-							${{$v['goods_price']}}
+				@foreach($res as $v)
+					<div class="col s6">
+						<div class="content" goods_id="{{$v['goods_id']}}">
+							<a href="/details/{{$v['goods_id']}}"><img src="{{$v['goods_img']}}" alt=""></a> 
+							<h6><a href="/details/{{$v['goods_id']}}">{{$v['goods_name']}}</a></h6>
+							<div class="price">
+								${{$v['goods_price']}} 
+							</div>
+							<button class="btn button-default" id="btn">添加到购物车<tton>
 						</div>
-						<button class="btn button-default" id="btn">添加到购物车</button>
+					
 					</div>
-
-				</div>@endforeach
+				@endforeach
 			</div>
-
 		</div>
 	</div>
 

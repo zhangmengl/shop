@@ -12,10 +12,8 @@ class IndexController extends Controller
 {
     //首页
     public function index(){
-        //分类查询
-        $data=model_cate::get()->toArray();
-        //商品查询
-        $res= model_shopgoods::get()->toArray();
+        //商品查询查到的是最热商品
+        $res= model_shopgoods::where('is_hot','1')->get()->toArray();
         return view("index.index.index",['data'=>$data,'res'=>$res]);
     }
     //列表
