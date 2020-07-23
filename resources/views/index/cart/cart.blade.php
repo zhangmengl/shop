@@ -70,6 +70,10 @@
 		</div>
 	</div>
 	<!-- end cart -->
+<<<<<<< HEAD
+
+@endsection
+=======
 	<script src="/static/index/js/jquery.min.js"></script>
 	<script>
 		//文本框失去焦点
@@ -150,3 +154,4 @@
         })
 	</script>
 @endsection
+>>>>>>> c537f54c84a6a447ae6bab77f95709efc936895d

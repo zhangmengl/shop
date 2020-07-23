@@ -16,9 +16,10 @@
 						<div class="input-field">
 							<input type="password" class="validate" placeholder="请输入密码" required name="password">
 						</div>
-						<a href=""><h6>Forgot Password ?</h6></a>
+						<a href="/login/reg"><h6>REGISTER</h6></a>
                         <input type="submit" value="LOGIN" class="btn button-default">
 					</form>
+
 				</div>
 			</div>
 		</div>

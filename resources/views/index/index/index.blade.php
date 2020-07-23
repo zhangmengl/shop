@@ -6,18 +6,31 @@
 		<ul id="slide-out-right" class="side-nav side-nav-panel collapsible">
 			<li class="profil">
 				<img src="img/profile.jpg" alt="">
-				<h2>John Doe</h2>
-			</li>
+			</li>	
+
+            @if(session('user')=='')
+                <h4><a href="{{url('/login/login')}}">请登录</a></h4>
+            @else
+                <h4>欢迎<b style="color:orange">@php echo session("user.name") @endphp</b>登录</h4>
+
+            @endif
+			
 			<li><a href="setting.html"><i class="fa fa-cog"></i>Settings</a></li>
 			<li><a href="about-us.html"><i class="fa fa-user"></i>About Us</a></li>
 			<li><a href="contact.html"><i class="fa fa-envelope-o"></i>Contact Us</a></li>
-			<li><a href="login.html"><i class="fa fa-sign-in"></i>Login</a></li>
+			
+			@if(session('user')=='')
+			    <li><a href="/login/login"><i class="fa fa-sign-in"></i>Login</a></li>
+            @else
+			    <li><a href="/login/quit"><i class="fa fa-sign-in"></i>Quit</a></li>
+            @endif
 			<li><a href="register.html"><i class="fa fa-user-plus"></i>Register</a></li>
+			
 		</ul>
 	</div>
 	<!-- end side nav right-->
- 
-	
+
+
 	<!-- menu -->
 	<div class="menus" id="animatedModal2">
 		<div class="close-animatedModal2 close-icon">
@@ -91,7 +104,7 @@
 				</div>
 				<div class="row">
 					<div class="col s4">
-						<a href="blog.html" class="button-link">	
+						<a href="blog.html" class="button-link">
 							<div class="menu-link">
 								<div class="icon">
 									<i class="fa fa-bold"></i>
@@ -101,7 +114,7 @@
 						</a>
 					</div>
 					<div class="col s4">
-						<a href="blog-single.html" class="button-link">	
+						<a href="blog-single.html" class="button-link">
 							<div class="menu-link">
 								<div class="icon">
 									<i class="fa fa-file-text-o"></i>
@@ -301,10 +314,10 @@
 		</div>
 	</div>
 	<!-- end cart menu -->
-	
+
 	<!-- slider -->
 	<div class="slider">
-		
+
 		<ul class="slides">
 			<li>
 				<img src="img/slide1.jpg" alt="">
@@ -403,6 +416,7 @@
 			<div class="row">
 			@foreach($res as $v)
 				<div class="col s6">
+
 			
 					<div class="content">
 						<a href="/details/{{$v['goods_id']}}"><img src="{{$v['goods_img']}}" alt=""></a> 
@@ -411,13 +425,12 @@
 
 						<h6><a href="/details/{{$v['goods_id']}}">{{$v['goods_name']}}</a></h6>
 						<div class="price">
-							${{$v['goods_price']}} 
+							${{$v['goods_price']}}
 						</div>
 						<button class="btn button-default" id="btn">添加到购物车</button>
 					</div>
-				
-				</div>
-			@endforeach
+
+				</div>@endforeach
 			</div>
 
 		</div>

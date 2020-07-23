@@ -305,13 +305,17 @@
             @foreach($res as $v)
 				<div class="col s6">
 					<div class="content">
+<<<<<<< HEAD
+						<img src="{{$v['goods_img']}}" alt="">
+=======
 					<a href="/details/{{$v['goods_id']}}"><img src="{{$v['goods_img']}}" alt=""></a> 
+>>>>>>> 90d9c349a4ad875fcee9282154a4f3ef5f9f1c6d
 						<h6><a href="/details/{{$v['goods_id']}}">{{$v['goods_name']}}</a></h6>
 						<div class="price">
                             ${{$v['goods_price']}}
 						</div>
 						<button class="btn button-default">添加购物车</button>
-					</div>
+					</div> 
 				</div>
             @endforeach
 			</div>
