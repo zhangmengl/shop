@@ -50,7 +50,7 @@
 				<h5>{{$data['goods_name']}}</h5>
 				<div class="price">${{$data['goods_price']}} 
 				<p>{{$data['goods_desc']}}</p>
-				<button type="button" class="btn button-default">加入购物车</button>
+				<button type="button" class="btn button-default" id="btn">加入购物车</button>
 			</div>
 			<div class="review">
 					<h5>1 reviews</h5>
@@ -123,8 +123,28 @@
 	<!-- end footer -->
 	
 	
-
+	<script src="/static/index/js/jquery.min.js"></script>
 </body>
 </html>
-
+<script>
+$(document).on('click','#btn',function(){
+	//购买数量
+	var buy_number=1;
+	//获取商品id
+	var goods_id={{$data['goods_id']}};
+	$.ajax({
+		url:'/addCart',
+		type:'post',
+		data:{buy_number:buy_number,goods_id:goods_id},
+		dataType:'json',
+		success:function(res){
+			if(res.code==true){
+				window.location.href='/cart';
+			}else{
+				alert(res.font);
+			}
+		}
+	})
+})
+</script>
 @endsection
