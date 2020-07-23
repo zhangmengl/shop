@@ -228,7 +228,7 @@
 							</div>
 							<div class="row quantity">
 								<div class="col s5">
-									<h5>Quantity</h5>
+									<h5>Quantity</h5>`
 								</div>
 								<div class="col s7">
 									<input value="1" type="text">
