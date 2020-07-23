@@ -415,15 +415,9 @@
 			</div>
 			<div class="row">@foreach($res as $v)
 				<div class="col s6">
-<<<<<<< HEAD
-
-					<div class="content">
-						<a href="/details/{{$v['goods_id']}}"><img src="{{$v['goods_img']}}" alt=""></a> 
-=======
 				
 					<div class="content" goods_id="{{$v['goods_id']}}">
 						<img src="{{$v['goods_img']}}" alt="">
->>>>>>> c537f54c84a6a447ae6bab77f95709efc936895d
 						<h6><a href="/details/{{$v['goods_id']}}">{{$v['goods_name']}}</a></h6>
 						<div class="price">
 							${{$v['goods_price']}}
@@ -437,25 +431,6 @@
 		</div>
 	</div>
 
-<<<<<<< HEAD
-	<!-- product -->
-	<div class="section product">
-			<div class="pagination-product">
-				<ul>
-					<li class="active">1</li>
-					<li><a href="">2</a></li>
-					<li><a href="">3</a></li>
-					<li><a href="">4</a></li>
-					<li><a href="">5</a></li>
-				</ul>
-			</div>
-
-	</div>
-	<!-- end product -->
-
-	<!-- loader -->
-=======
->>>>>>> 90d9c349a4ad875fcee9282154a4f3ef5f9f1c6d
 	<div id="fakeLoader"></div>
 	<!-- end loader -->
 
