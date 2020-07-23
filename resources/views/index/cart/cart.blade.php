@@ -125,6 +125,7 @@
             )
         }
 		//单删
+		
         $(document).on("click",".del",function(){
 			if(window.confirm("是否确认删除？")){
             //获取当前点击的对象

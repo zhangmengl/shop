@@ -7,13 +7,14 @@ use Illuminate\Http\Request;
 use App\Model\Cart;
 use App\Model\ShopGoods;
 
-class CartController extends Controller
-{
+class CartController extends Controller{
+
     public function checkLogin(){
         $user=session('user');
         $user_id=$user['id'];
         return $user_id;
     }
+
     //加入购物车
     public function addCart(Request $request){
         //接收商品id
@@ -23,9 +24,11 @@ class CartController extends Controller
         // 判断用户是否登录  检测是否有，登陆时的存储session信息
         $user_id=$this->checkLogin();
         if(!empty($user_id)){
+            
             //加入购物车  数据库
             $res=$this->addCartDb($goods_id,$buy_number);
         }else{
+           
             //加入购物车  session
             $res=$this->addCartCookie($goods_id,$buy_number);
         }
@@ -81,6 +84,8 @@ class CartController extends Controller
             }
         }
     }
+
+
     //加入购物车
     public function addCartCookie($goods_id,$buy_number){
         $cartInfo=session('cartInfo');
@@ -112,6 +117,8 @@ class CartController extends Controller
         }
         session(['cartInfo'=>$cartInfo]);
     }
+
+
     //购物车列表
     public function cartList(){
         $user_id=$this->checkLogin();
@@ -129,6 +136,8 @@ class CartController extends Controller
         }
         return view("index.cart.cart",["cartInfo"=>$cartInfo,'money'=>$money]);
     }
+
+
     //取出购物车数据  数据库
     public function getCartDb(){
         //两表联查  商品表  购物车表
@@ -146,6 +155,8 @@ class CartController extends Controller
                        ->get();
         return $cartInfo->toArray();          
     }
+
+
     //取出购物车数据  cookie
     public function getCartCookie(){
         $cartInfo=session('cartInfo');
@@ -164,6 +175,8 @@ class CartController extends Controller
             return $cartInfo=[]; 
         }
     }
+
+
     //更改购买数据
     public function changeNumber(Request $request){
         $goods_id=$request->input("goods_id");
@@ -182,6 +195,8 @@ class CartController extends Controller
             echo json_encode(['code'=>2,'font'=>'成功']);
         }
     }
+
+
     //更改购买数量  数据库
     public function changeNumberDb($goods_id,$buy_number){
         //获取用户id
@@ -197,6 +212,8 @@ class CartController extends Controller
         $res=Cart::where($where)->update(["buy_number"=>$buy_number]);
         return $res;
     }
+
+
     //更改购买数量
     public function changeNumberCookie($goods_id,$buy_number){
         //取出session
@@ -210,6 +227,8 @@ class CartController extends Controller
             return true;
         }
     }
+
+
     //重新获取小计
     public function getTotal(Request $request){
         //获取商品id
@@ -225,6 +244,8 @@ class CartController extends Controller
         }
         return $goods_price*$buy_number;
     }
+
+
     //获取购买数量  数据库
     public function getBuyNumberDb($goods_id){
         //获取用户id
@@ -238,6 +259,8 @@ class CartController extends Controller
         $buy_number=Cart::where($where)->value("buy_number");
         return $buy_number;
     }
+
+
     //获取购买数量  session
     public function getBuyNumberCookie($goods_id){
         //取出session
@@ -248,6 +271,8 @@ class CartController extends Controller
             return $cartInfo[$goods_id]['buy_number'];
         }
     }
+
+
     //删除
     public function del(Request $request){
         //获取商品id
@@ -268,6 +293,7 @@ class CartController extends Controller
             echo json_encode(['code'=>2,'font'=>'删除失败']);
         }
     }
+
     //删除  数据库
     public function getDelDb($goods_id){
         //获取用户id
@@ -282,6 +308,7 @@ class CartController extends Controller
         $res=Cart::where($where)->update(["is_del"=>2]);
         return $res;
     }
+
     //删除  session
     public function getDelCookie($goods_id){
         $cartInfo=session("cartInfo");

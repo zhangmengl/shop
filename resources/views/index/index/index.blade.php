@@ -459,6 +459,7 @@ $(document).on('click','#btn',function(){
 		dataType:'json',
 		success:function(res){
 			if(res.code==true){
+				alert("添加成功");
 				window.location.href='/cart';
 			}else{
 				alert(res.font);
