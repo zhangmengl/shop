@@ -98,6 +98,7 @@
             changeNumber(goods_id,buy_number);
             //重新获取小计
             getTotal(goods_id,_this);
+			window.location.reload();
 		});
 		//更改购买数据
         function changeNumber(goods_id,buy_number){

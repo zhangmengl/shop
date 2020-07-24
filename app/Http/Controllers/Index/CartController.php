@@ -30,9 +30,9 @@ class CartController extends Controller
             $res=$this->addCartCookie($goods_id,$buy_number);
         }
         if($res){
-            echo json_encode(['code'=>true]);
-        }else{
             echo json_encode(['code'=>false,'font'=>'添加失败']);
+        }else{
+            echo json_encode(['code'=>true]);
         }
     }
      public function addCartDb($goods_id,$buy_number){
