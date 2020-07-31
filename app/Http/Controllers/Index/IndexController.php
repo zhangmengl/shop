@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Model\ShopGoods as model_shopgoods;
 use App\Model\Cate as model_cate;
-
+use App\Model\Video;
 
 class IndexController extends Controller
 {
@@ -29,7 +29,14 @@ class IndexController extends Controller
     //商品详情
     public function details($id){
         // echo $id;die;
-        $data= model_shopgoods::where( 'goods_id',$id)->find($id)->toArray();
-        return view('index.index.details',['data'=>$data]);
+        $data= model_shopgoods::where('goods_id',$id)->find($id)->toArray();
+        $aaa=Video::where('goods_id',$id)->get()->toArray();
+        // print_r($aaa);die;
+        if(empty($aaa)){
+            return view('index.index.details',['data'=>$data]);
+        }else{
+            $data['goods_m3u8']=$aaa[0]['goods_m3u8'];
+            return view('index.index.details',['data'=>$data]);
+        }
     }
 }

@@ -1,6 +1,7 @@
 @extends('index.layouts.layout')
 @section('content')
-
+<link rel="stylesheet" href="https://g.alicdn.com/de/prismplayer/2.8.8/skins/default/aliplayer-min.css" />
+<script type="text/javascript" charset="utf-8" src="https://g.alicdn.com/de/prismplayer/2.8.8/aliplayer-min.js"></script>
 	<!-- side nav right-->
 	<div class="side-nav-panel-right">
 		<ul id="slide-out-right" class="side-nav side-nav-panel collapsible">
@@ -56,6 +57,9 @@
 
 			<div class="shop-single">
 				<img src="{{$data['goods_img']}}" alt="">
+				@if(isset($data['goods_m3u8']))
+					<div class="prism-player" id="player-con"></div>
+				@endif
 				<h5>{{$data['goods_name']}}</h5>
 				<div class="price">${{$data['goods_price']}} 
 				<p>{{$data['goods_desc']}}</p>
@@ -154,6 +158,22 @@ $(document).on('click','#btn',function(){
 			}
 		}
 	})
-})
+});
+var player = new Aliplayer({
+  "id": "player-con",
+  "source": "/storage/{{$data['goods_m3u8'] ?? ''}}",
+  "width": "50%",
+  "height": "300px",
+  "autoplay": true,
+  "isLive": false,
+  "rePlay": false,
+  "playsinline": true,
+  "preload": true,
+  "controlBarVisibility": "hover",
+  "useH5Prism": true
+}, function (player) {
+    console.log("The player is created");
+  }
+);
 </script>
 @endsection

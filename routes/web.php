@@ -30,3 +30,5 @@ Route::prefix('login')->group(function () {
     Route::post("/logindo","Index\LonginController@logindo");//执行登录
 });
 
+Route::get('/crontab','VideoController@crontab');//定时转码
+
