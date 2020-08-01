@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Model\ShopGoods as model_shopgoods;
 use App\Model\Cate as model_cate;
+use App\Model\Video as model_video;
+
 
 
 class IndexController extends Controller
@@ -29,7 +31,16 @@ class IndexController extends Controller
     //商品详情
     public function details($id){
         // echo $id;die;
+        $v = model_video::where(['goods_id'=>$id])->first();
+        if($v)
+        {
+            $goods_info['m3u8'] = $v->m3u8;
+        }else{
+            $goods_info['m3u8'] = "video/default.mp4";        //默认视频
+        }
+
+
         $data= model_shopgoods::find($id)->toArray();
-        return view('index.index.details',['data'=>$data]);
+        return view('index.index.details',['data'=>$data,'res'=>$v]);
     }
 }

@@ -44,6 +44,10 @@ Route::prefix('wish')->group(function () {
     Route::get("wishDo","Index\WishController@wishDo");//点击收藏按钮
     Route::get("wishDel","Index\WishController@wishDel");//取消收藏
 });
+Route::prefix('/cron')->group(function(){
+    Route::get('/codec','Index\VideoController@codec');            //定时转码
+});
+
 
 
 

@@ -53,7 +53,7 @@
 	<!-- shop single -->
 	<div class="pages section">
 		<div class="container">
-
+		<div class="prism-player" id="player-con"></div>
 			<div class="shop-single">
 				<img src="{{$data['goods_img']}}" alt="">
 				<h5>{{$data['goods_name']}}</h5>
@@ -176,6 +176,24 @@
 		})
 	})
 
+</script>
+<script>
+var player = new Aliplayer({
+  "id": "player-con",
+  "source": "/storage/{{$res['m3u8']}}",
+  "width": "50%",
+  "height": "300px",
+  "autoplay": true,
+  "isLive": false,
+  "rePlay": true,
+  "playsinline": true,
+  "preload": true,
+  "controlBarVisibility": "hover",
+  "useH5Prism": true
+}, function (player) {
+    console.log("The player is created");
+  }
+);
 </script>
 
 

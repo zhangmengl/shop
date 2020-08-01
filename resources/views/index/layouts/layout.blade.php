@@ -19,6 +19,8 @@
 	<link rel="stylesheet" href="css/fakeLoader.css">
 	<link rel="stylesheet" href="css/animate.css">
 	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="https://g.alicdn.com/de/prismplayer/2.8.8/skins/default/aliplayer-min.css" />
+	<script type="text/javascript" charset="utf-8" src="https://g.alicdn.com/de/prismplayer/2.8.8/aliplayer-min.js"></script>
 	
 	<script type="text/javascript" src="js/jquery.js"></script>
 	<link rel="shortcut icon" href="img/favicon.png">

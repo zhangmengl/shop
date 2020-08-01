@@ -13,6 +13,6 @@ Route::group([
 
     $router->get('/', 'HomeController@index')->name('home');
     $router->resource('goods', GoodsController::class);
-    $router->resource('cata', GoodsController::class);
+    $router->resource('video', VideoController::class);
 
 });
