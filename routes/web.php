@@ -40,9 +40,13 @@ Route::prefix('login')->group(function () {
 
 
 Route::prefix('wish')->group(function () {
-    Route::get("wish","Index\WishController@wish");//收藏
-    Route::get("wishDo","Index\WishController@wishDo");//点击收藏按钮
-    Route::get("wishDel","Index\WishController@wishDel");//取消收藏
+    Route::any("wish","Index\WishController@wish");//收藏
+    Route::any("wishDo","Index\WishController@wishDo");//点击收藏按钮
+    Route::any("wishDel","Index\WishController@wishDel");//取消收藏
+});
+//计划任务
+Route::prefix('/cron')->group(function(){
+    Route::get('/codec','Cron\VideoController@codec');            //定时转码
 });
 
 

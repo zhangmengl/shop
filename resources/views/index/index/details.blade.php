@@ -1,5 +1,7 @@
 @extends('index.layouts.layout')
 @section('content')
+<link rel="stylesheet" href="https://g.alicdn.com/de/prismplayer/2.8.8/skins/default/aliplayer-min.css" />
+<script type="text/javascript" charset="utf-8" src="https://g.alicdn.com/de/prismplayer/2.8.8/aliplayer-min.js"></script>
 
 	<!-- side nav right-->
 	<div class="side-nav-panel-right">
@@ -62,6 +64,10 @@
 				<button type="button" class="btn button-default" id="btn">加入购物车</button>
 				<button type="button" class="btn button-default" id="wish">收藏</button>
 			</div>
+
+			<!-- 视频展示 开始 -->
+			<div class="prism-player" id="player-con"></div>
+            <!-- 视频展示 结束 -->
 		
 			<div class="review">
 					<h5>1 reviews</h5>
@@ -138,7 +144,7 @@
 </body>
 </html>
 <script>
-    //点击收藏按钮afa
+    //点击收藏按钮
 	$(document).on('click','#wish',function(){
 		var goods_id='{{$data["goods_id"]}}';
 		$.ajax({
@@ -156,6 +162,7 @@
 			}
 		});
 	})
+	//购物车
 	$(document).on('click','#btn',function(){
 		//购买数量
 		var buy_number=1;
@@ -176,8 +183,57 @@
 		})
 	})
 
+
+
 </script>
 
+<!-- footer -->
+<div class="footer">
+    <div class="container">
+        <div class="about-us-foot">
+            <h6>Mstore</h6>
+            <p>is a lorem ipsum dolor sit amet, consectetur adipisicing elit consectetur adipisicing elit.</p>
+        </div>
+        <div class="social-media">
+            <a href=""><i class="fa fa-facebook"></i></a>
+            <a href=""><i class="fa fa-twitter"></i></a>
+            <a href=""><i class="fa fa-google"></i></a>
+            <a href=""><i class="fa fa-linkedin"></i></a>
+            <a href=""><i class="fa fa-instagram"></i></a>
+        </div>
+        <div class="copyright">
+            <span>© 2017 All Right Reserved</span>
+        </div>
+    </div>
+</div>
+<!-- end footer -->
 
+<!-- scripts -->
+<script src="js/jquery.min.js"></script>
+<script src="js/materialize.min.js"></script>
+<script src="js/owl.carousel.min.js"></script>
+<script src="js/fakeLoader.min.js"></script>
+<script src="js/animatedModal.min.js"></script>
+<script src="js/main.js"></script>
+<script type="text/javascript" charset="utf-8" src="https://g.alicdn.com/de/prismplayer/2.8.8/aliplayer-min.js"></script>
+
+<script>
+    var player = new Aliplayer({
+            "id": "player-con",
+            "source": "/storage/{!! $goods['m3u8'] !!}",
+            "width": "50%",
+            "height": "400px",
+            "autoplay": true,
+            "isLive": false,
+            "rePlay": false,
+            "playsinline": true,
+            "preload": true,
+            "controlBarVisibility": "hover",
+            "useH5Prism": true
+        }, function (player) {
+            console.log("The player is created");
+        }
+    );
+</script>
 
 @endsection

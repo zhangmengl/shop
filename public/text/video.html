@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -9,4 +9,37 @@
         <video src="/video/qian.mp4" width="400px" height="430px" controls="controls"></video>
     </center>
 </body>
-</html>
+</html> -->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge" >
+    <title>Aliplayer Online Settings</title>
+    <link rel="stylesheet" href="https://g.alicdn.com/de/prismplayer/2.8.8/skins/default/aliplayer-min.css" />
+    <script type="text/javascript" charset="utf-8" src="https://g.alicdn.com/de/prismplayer/2.8.8/aliplayer-min.js"></script>
+</head>
+<body>
+<center>
+<div class="prism-player" id="player-con"></div>
+<script>
+    var player = new Aliplayer({
+            "id": "player-con",
+            "source": "/video/qian.m3u8",
+            "width": "50%",
+            "height": "690px",
+            "autoplay": true,
+            "isLive": false,
+            "rePlay": false,
+            "playsinline": true,
+            "preload": true,
+            "controlBarVisibility": "hover",
+            "useH5Prism": true
+        }, function (player) {
+            console.log("The player is created");
+        }
+    );
+</script>
+</center>
+</body>
+

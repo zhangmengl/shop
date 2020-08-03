@@ -12,7 +12,8 @@ Route::group([
 ], function (Router $router) {
 
     $router->get('/', 'HomeController@index')->name('home');
-    $router->resource('goods', GoodsController::class);
-    $router->resource('cata', GoodsController::class);
+    $router->resource('category', CategoryController::class);       //分类管理
+    $router->resource('goods', GoodsController::class);      //商品管理
+    $router->resource('video', VideoController::class);     //视频管理
 
 });
